@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+</head>
+<body>
+    <div class="container_navbar">
+        <div class="content_navbar">
+            <!-- Navbar fragment: minimal structure and classes. Styles are in static/style.css -->
+<div class="container_navbar">
+    <div class="content_navbar">
+        <a href="/" class="brand-link"><img class="logo" src="static/logo.png" alt="Vestas"/></a>
+        <div class="button-container">
+            <a href="/todaystasks.html" class="button">Today's Tasks</a>
+            <a href="/leaderboards.html" class="button">Leaderboards</a>
+            <a href="/pointshop.html" class="button">Point Shop</a>
+
+            <!-- Login / Register shown when logged out -->
+            <a href="/login.html" id="nav-login" class="button login">Login</a>
+            <a href="/register.html" id="nav-register" class="button" style="display:none;">Register</a>
+
+            <!-- Profile dropdown shown when logged in -->
+            <div class="dropdown" id="nav-profile" style="display:none;">
+                <button class="button round" id="profile-btn">P</button>
+                <div class="dropdown-content">
+                    <a href="/profile_settings.html">Settings</a>
+                    <a href="#" id="nav-logout">Logout</a>
+                </div>
+            </div>
+
+            <!-- Streak visual (optional) -->
+            <div class="streak-container" id="nav-streak" style="display:none;">
+                <div class="streak-fire">
+                    <div class="streak-number" id="streak-number">0</div>
+                    <div class="flame"></div>
+                    <div class="flame"></div>
+                    <div class="flame"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="static/site.js"></script>
+        </div>
+    </div>
+</body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            align-items: center;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Leaderboards</h1>
+
+    <div class="container">
+        <h2>Hall of fame</h2>
+        <img src="static/alltime.png" width=300>
+
+        <h2>Weekly Leaderboard</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Replace the content inside the tbody with dynamic data -->
+                <tr>
+                    <td>1</td>
+                    <td>Player 7</td>
+                    <td>110</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Player 8</td>
+                    <td>88</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Player 9</td>
+                    <td>81</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+
+        <h2>Monthly Leaderboard</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Replace the content inside the tbody with dynamic data -->
+                <tr>
+                    <td>1</td>
+                    <td>Player 4</td>
+                    <td>890</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Player 5</td>
+                    <td>820</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Player 6</td>
+                    <td>770</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+        
+        <h2>Yearly Leaderboard</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Replace the content inside the tbody with dynamic data -->
+                <tr>
+                    <td>1</td>
+                    <td>Player 1</td>
+                    <td>7850</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Player 2</td>
+                    <td>6880</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Player 3</td>
+                    <td>6520</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!-- Navbar fragment: minimal structure and classes. Styles are in static/style.css -->
+<div class="container_navbar">
+    <div class="content_navbar">
+        <a href="/" class="brand-link"><img class="logo" src="static/logo.png" alt="Vestas"/></a>
+        <div class="button-container">
+            <a href="/todaystasks.html" class="button">Today's Tasks</a>
+            <a href="/leaderboards.html" class="button">Leaderboards</a>
+            <a href="/pointshop.html" class="button">Point Shop</a>
+
+            <!-- Login / Register shown when logged out -->
+            <a href="/login.html" id="nav-login" class="button login">Login</a>
+            <a href="/register.html" id="nav-register" class="button">Register</a>
+
+            <!-- Profile dropdown shown when logged in -->
+            <div class="dropdown" id="nav-profile" style="display:none;">
+                <button class="button round" id="profile-btn">P</button>
+                <div class="dropdown-content">
+                    <a href="/profile_settings.html">Settings</a>
+                    <a href="#" id="nav-logout">Logout</a>
+                </div>
+            </div>
+
+            <!-- Streak visual (optional) -->
+            <div class="streak-container" id="nav-streak" style="display:none;">
+                <div class="streak-fire">
+                    <div class="streak-number" id="streak-number">0</div>
+                    <div class="flame"></div>
+                    <div class="flame"></div>
+                    <div class="flame"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="static/site.js"></script>
