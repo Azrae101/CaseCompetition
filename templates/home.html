@@ -56,7 +56,7 @@
          (the Jinja include is replaced with static markup for direct preview) -->
     <div class="container_navbar">
         <div class="content_navbar">
-            <a href="/" class="brand-link"><img class="logo" src="/static/logo.png" alt="Vestas"/><span class="brand-text">Vestas Cyber Challenge</span></a>
+            <a href="{{ url_for('home') }}" class="brand-link"><img class="logo" src="{{ url_for('static', filename='logo.png') }}" alt="Vestas"/><span class="brand-text">Vestas Cyber Challenge</span></a>
             <div class="button-container">
                 <a href="/templates/todaystasks.html" class="button">Today's Tasks</a>
                 <a href="/templates/leaderboards.html" class="button">Leaderboards</a>
@@ -109,7 +109,7 @@
                 <li>Lydia Pauli Rambrand</li>
                 <li>Márton Ferenc Péterdi</li>
             </ul>
-            <p>Our Logo:</p><img src="/static/logo.png" width=75>
+            <p>Our Logo:</p><img src="{{ url_for('static', filename='logo.png') }}" width=75>
         </section>
         <section class="start">
             <h2>Get Started</h2>

@@ -51,7 +51,7 @@
 <nav id="topnav">
     <div id="topnav-center">
              <!-- Back to Home Button -->
-      <button class="back-btn" onclick="location.href='/'">Back to Home</button>
+    <a class="back-btn" href="{{ url_for('home') }}">Back to Home</a>
         <ul>
             {% if g.user %}
                 <li><span>{{ g.user['username'] }}</span>

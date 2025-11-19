@@ -1,7 +1,7 @@
 <!-- Navbar fragment: minimal structure and classes. Styles are in static/style.css -->
 <div class="container_navbar">
     <div class="content_navbar">
-    <a href="/" class="brand-link"><img class="logo" src="/static/logo.png" alt="Vestas"/><span class="brand-text">Vestas Cyber Challenge</span></a>
+    <a href="{{ url_for('home') }}" class="brand-link"><img class="logo" src="{{ url_for('static', filename='logo.png') }}" alt="Vestas"/><span class="brand-text">Vestas Cyber Challenge</span></a>
         <div class="button-container">
                 <a href="/templates/todaystasks.html" class="button">Today's Tasks</a>
                 <a href="/templates/leaderboards.html" class="button">Leaderboards</a>
