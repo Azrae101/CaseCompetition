@@ -142,6 +142,33 @@ def build():
     else:
         print('No static/ directory found; skipping copy')
 
+    # Overwrite the root index with a redirect to the preview-style page under /templates/
+    # This ensures the project Pages root (https://<user>.github.io/<repo>/)
+    # redirects to https://<user>.github.io/<repo>/templates/home.html instead of
+    # an absolute /templates/... path which would point to the user site root.
+    redirect_target = 'templates/home.html'
+    redirect_html = f'''<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url={redirect_target}">
+  <meta name="robots" content="noindex">
+  <title>Redirecting...</title>
+</head>
+<body>
+  <p>Redirecting to <a href="{redirect_target}">{redirect_target}</a></p>
+  <script>location.replace('{redirect_target}')</script>
+</body>
+</html>'''
+
+    index_path = os.path.join(OUT_DIR, 'index.html')
+    try:
+        with open(index_path, 'w', encoding='utf-8') as f:
+            f.write(redirect_html)
+        print('Wrote redirect index at', index_path)
+    except Exception as e:
+        print('Failed to write redirect index:', e)
+
 
 if __name__ == '__main__':
     build()
