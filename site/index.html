@@ -1,127 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-    
-    header {
-        background-color: #004165;
-        color: #fff;
-        padding: 20px;
-        text-align: center;
-    }
-    
-    main {
-        padding: 20px;
-    }
-    
-    .about, .start {
-        margin-bottom: 30px;
-    }
-    
-    .btn {
-        display: inline-block;
-        background-color: #004165;
-        color: #fff;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-    }
-    
-    .btn:hover {
-        background-color: #002135;
-    }
-    
-    footer {
-        background-color: #004165;
-        color: #fff;
-        text-align: center;
-        padding: 10px;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
-</style>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url=templates/home.html">
+  <meta name="robots" content="noindex">
+  <title>Redirecting...</title>
 </head>
 <body>
-    <!-- Inline navbar fragment so this template can be opened directly in a browser
-         (the Jinja include is replaced with static markup for direct preview) -->
-    <div class="container_navbar">
-        <div class="content_navbar">
-            <a href="index.html" class="brand-link"><img class="logo" src="static\logo.png" alt="Vestas"/><span class="brand-text">Vestas Cyber Challenge</span></a>
-            <div class="button-container">
-                <a href="todaystasks.html" class="button">Today's Tasks</a>
-                <a href="leaderboards.html" class="button">Leaderboards</a>
-                <a href="pointshop.html" class="button">Point Shop</a>
-
-                <!-- Login / Register shown when logged out -->
-                <a href="login.html" id="nav-login" class="button login">Login</a>
-                <a href="register.html" id="nav-register" class="button">Register</a>
-
-                <!-- Profile dropdown shown when logged in -->
-                <div class="dropdown" id="nav-profile" style="display:none;">
-                    <button class="button round" id="profile-btn">P</button>
-                    <div class="dropdown-content">
-                        <a href="profile_settings.html">Settings</a>
-                        <a href="#" id="nav-logout">Logout</a>
-                    </div>
-                </div>
-
-                <!-- Streak visual (optional) -->
-                <div class="streak-container" id="nav-streak" style="display:none;">
-                    <div class="streak-fire">
-                        <div class="streak-number" id="streak-number">0</div>
-                        <div class="flame"></div>
-                        <div class="flame"></div>
-                        <div class="flame"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="/static/site.js"></script>
-    <div class="container">
-    <header>
-        <h1>Welcome to the Vestas Cybersecurity Challenge!</h1>
-        <p>Protecting our Windmills, One Quiz at a Time</p>
-    </header>
-    <main>
-        <section class="about">
-            <h2>About the Game</h2>
-            <p>Embark on an exciting journey to become a cybersecurity expert while helping Vestas secure its windmill operations. In this interactive game, you'll face quizzes, tasks, and challenges designed to enhance your cybersecurity knowledge.</p>
-            <p>Earn valuable points for every quiz and task you complete. Use your points to unlock exclusive rewards in our in-game point shop!</p>
-        </section>
-        <section class="aboutus">
-            <h2>About us</h2>
-            <p>We are a group of Cognitive Science Bachelor students from Aarhus Universitet. We made this website as part of the 2024 Stay relevant Case Competition. </p>
-            <p>Our members:</p>
-            <ul>
-                <li>Clara Holst</li>
-                <li>Alexandra Sash Ciulisová</li>
-                <li>Lydia Pauli Rambrand</li>
-                <li>Márton Ferenc Péterdi</li>
-            </ul>
-            <p>Our Logo:</p><img src="static\logo.png" width=75>
-        </section>
-        <section class="start">
-            <h2>Get Started</h2>
-            <p>Are you ready to take on the challenge? Click the button below to begin your cybersecurity adventure!</p>
-            <a href="todaystasks.html" class="btn">Start Now</a>
-            <p>  .</p>
-            <p> .</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Vestas Wind Systems. All rights reserved.</p>
-    </footer>
-</div>
+  <p>Redirecting to <a href="templates/home.html">templates/home.html</a></p>
+  <script>location.replace('templates/home.html')</script>
 </body>
 </html>
