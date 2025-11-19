@@ -1,0 +1,92 @@
+<!doctype html>
+
+<style>
+    #topnav-center {
+        display: flex;
+        justify-content: flex-end; /* Align items to the right */
+        align-items: center; /* Align items vertically */
+    }
+    .back-btn {
+        display: block; /* Make it a block element */
+        margin-top: 0px; /* Add some top margin */
+        width: 15%; /* Make it take full width */
+        padding: 10px 10px; /* Adjust padding */
+        background-color: #007bff;
+        margin-right: auto;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        height: 40px; /* Set the height */
+    }
+
+    .back-btn:hover, #topnav-center ul li a:hover {
+        background-color: #0056b3;
+    }
+
+    #topnav-center ul {
+        margin-right: 20px; /* Increase the distance between buttons */
+    }
+
+    #topnav-center ul li {
+        margin-right: 10px; /* Increase the distance between list items */
+    }
+
+    #topnav-center ul li a {
+        height: 20px
+    }
+
+
+</style>
+
+<head>
+    <title>CogCards - </title>
+    <link rel="stylesheet" href="static\style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<nav id="topnav">
+    <div id="topnav-center">
+             <!-- Back to Home Button -->
+    <a class="back-btn" href="../index.html">Back to Home</a>
+        <ul>
+            
+                <li><a href="register.html">Register</a>
+                <li><a href="login.html">Log In</a>
+            
+        </ul>
+    </div>
+</nav>
+
+<div id="body">
+    
+
+    <section class="content">
+        
+
+        
+  <div class="centered-content">
+    <h2>Log in</h2>
+
+    <form action="login.html" method="post">
+        <label for="username">Username</label>
+        <input id="username" type="text" name="username">
+
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password">
+
+        <input type="submit" value="Log in">
+    </form>
+  </div>
+
+    </section>
+
+</div>
+</body>
+</html>
+
+<!-- Load client-side script to enable fake login and navbar behavior -->
+<script src="static\site.js"></script>

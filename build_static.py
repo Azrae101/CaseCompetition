@@ -106,6 +106,34 @@ def build():
             f.write(rendered)
         print('Wrote', out_path)
 
+        # Also write a preview-style copy under site/templates/ so the deployed
+        # GitHub Pages URL can serve the same path as the preview (e.g.
+        # /<repo>/templates/home.html).
+        preview_dir = os.path.join(OUT_DIR, 'templates')
+        os.makedirs(preview_dir, exist_ok=True)
+        preview_content = rendered
+        # Adjust asset paths for files placed inside site/templates/
+        # - /static/...  -> ../static/...
+        preview_content = preview_content.replace('href="/static/', 'href="../static/')
+        preview_content = preview_content.replace("href='/static/", "href='../static/")
+        preview_content = preview_content.replace('src="/static/', 'src="../static/')
+        preview_content = preview_content.replace("src='/static/", "src='../static/")
+
+        # Adjust links that point to templates/ so they are local to the templates/ folder
+        preview_content = preview_content.replace('href="/templates/', 'href="')
+        preview_content = preview_content.replace("href='/templates/", "href='")
+        preview_content = preview_content.replace('href="templates/', 'href="')
+        preview_content = preview_content.replace("href='templates/", "href='")
+
+        # Make sure links to the site's index point to the parent folder
+        preview_content = preview_content.replace('href="index.html"', 'href="../index.html"')
+        preview_content = preview_content.replace("href='index.html'", "href='../index.html'")
+
+        preview_path = os.path.join(preview_dir, out_name)
+        with open(preview_path, 'w', encoding='utf-8') as pf:
+            pf.write(preview_content)
+        print('Wrote preview copy', preview_path)
+
     # Copy static assets
     dest_static = os.path.join(OUT_DIR, 'static')
     if os.path.exists(STATIC_DIR):
