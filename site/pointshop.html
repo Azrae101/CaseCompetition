@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Point Shop</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <style>
     body {
@@ -54,23 +55,23 @@
             <!-- Navbar fragment: minimal structure and classes. Styles are in static/style.css -->
 <div class="container_navbar">
     <div class="content_navbar">
-        <a href="/" class="brand-link"><img class="logo" src="static/logo.png" alt="Vestas"/></a>
+    <a href="/" class="brand-link"><img class="logo" src="/static/logo.png" alt="Vestas"/><span class="brand-text">Vestas Cyber Challenge</span></a>
         <div class="button-container">
-            <a href="/todaystasks.html" class="button">Today's Tasks</a>
-            <a href="/leaderboards.html" class="button">Leaderboards</a>
-            <a href="/pointshop.html" class="button">Point Shop</a>
+                <a href="todaystasks.html" class="button">Today's Tasks</a>
+                <a href="leaderboards.html" class="button">Leaderboards</a>
+                <a href="pointshop.html" class="button">Point Shop</a>
 
             <!-- Login / Register shown when logged out -->
-            <a href="/login.html" id="nav-login" class="button login">Login</a>
-            <a href="/register.html" id="nav-register" class="button" style="display:none;">Register</a>
+            <a href="login.html" id="nav-login" class="button login">Login</a>
+            <a href="register.html" id="nav-register" class="button">Register</a>
 
             <!-- Profile dropdown shown when logged in -->
             <div class="dropdown" id="nav-profile" style="display:none;">
                 <button class="button round" id="profile-btn">P</button>
-                <div class="dropdown-content">
-                    <a href="/profile_settings.html">Settings</a>
-                    <a href="#" id="nav-logout">Logout</a>
-                </div>
+                    <div class="dropdown-content">
+                        <a href="profile_settings.html">Settings</a>
+                        <a href="#" id="nav-logout">Logout</a>
+                    </div>
             </div>
 
             <!-- Streak visual (optional) -->
@@ -85,7 +86,7 @@
         </div>
     </div>
 </div>
-<script src="static/site.js"></script>
+<script src="/static/site.js"></script>
         </div>
     </div>
 </body>
@@ -93,19 +94,19 @@
     <div class="container">
         <h1>Point Shop</h1>
         <div class="item">
-            <img src="static/coffee.png" width="200" height="150"/>
+            <img src="/static/coffee.png" width="200" height="150"/>
             <h2>Free Coffee</h2>
             <p>Redeem your points for a complimentary coffee!</p>
             <p class="points">100 points</p>
         </div>
         <div class="item">
-            <img src="static/cinema.png" width="175" height="175"/>
+            <img src="/static/cinema.png" width="175" height="175"/>
             <h2>Cinema Ticket</h2>
             <p>Enjoy a movie on us!</p>
             <p class="points">200 points</p>
         </div>
         <div class="item">
-            <img src="static/vindmølle.jpg" width="200" height="150"/>
+            <img src="/static/vindmølle.jpg" width="200" height="150"/>
             <h2>Vestas Windmill Figurine</h2>
             <p>Get a cute figurine of a Vestas windmill!</p>
             <p class="points">300 points</p>
@@ -113,3 +114,33 @@
     </div>
 </body>
 </html>
+
+    <!-- Inline navbar for preview -->
+    <div class="container_navbar">
+        <div class="content_navbar">
+            <a href="/" class="brand-link"><img class="logo" src="/static/logo.png" alt="Vestas"/><span class="brand-text">Vestas Cyber Challenge</span></a>
+            <div class="button-container">
+                <a href="todaystasks.html" class="button">Today's Tasks</a>
+                <a href="leaderboards.html" class="button">Leaderboards</a>
+                <a href="pointshop.html" class="button">Point Shop</a>
+                <a href="login.html" id="nav-login" class="button login">Login</a>
+                <a href="register.html" id="nav-register" class="button">Register</a>
+                <div class="dropdown" id="nav-profile" style="display:none;">
+                    <button class="button round" id="profile-btn">P</button>
+                    <div class="dropdown-content">
+                        <a href="profile_settings.html">Settings</a>
+                        <a href="#" id="nav-logout">Logout</a>
+                    </div>
+                </div>
+                <div class="streak-container" id="nav-streak" style="display:none;">
+                    <div class="streak-fire">
+                        <div class="streak-number" id="streak-number">0</div>
+                        <div class="flame"></div>
+                        <div class="flame"></div>
+                        <div class="flame"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/site.js"></script>

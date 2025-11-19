@@ -31,31 +31,67 @@ document.addEventListener('DOMContentLoaded', function(){
     refreshNav();
 
     // Intercept login form if present
-    const loginForm = document.querySelector('form[action="/login"]');
-    if(loginForm){
-        loginForm.addEventListener('submit', function(e){
-            e.preventDefault();
-            const user = document.getElementById('username') ? document.getElementById('username').value : 'user';
-            localStorage.setItem('logged_in','true');
-            localStorage.setItem('username', user);
-            // redirect to home
-            window.location.href = '/';
-        });
+    // Helper to get the form action filename (last path segment)
+    function formActionName(form){
+        if(!form || !form.getAttribute) return '';
+        let a = form.getAttribute('action') || '';
+        try{ a = new URL(a, window.location.href).pathname; }catch(e){}
+        const parts = a.split('/').filter(Boolean);
+        return parts.length? parts[parts.length-1] : '';
     }
 
-    // Intercept register form
-    const registerForm = document.querySelector('form[action="/register"]');
-    if(registerForm){
-        registerForm.addEventListener('submit', function(e){
-            e.preventDefault();
-            // store the username locally (fake)
-            const user = document.getElementById('username') ? document.getElementById('username').value : 'newuser';
-            localStorage.setItem('username', user);
-            // show flash and redirect to login
-            alert('Registered (fake). You will be redirected to login.');
-            window.location.href = '/login';
-        });
+    // helper to choose correct link base depending on whether page is a template preview
+    function makeHref(filename){
+        // If we're viewing under /templates/ (Live Server preview), use templates/ paths
+        if(location.pathname.includes('/templates/')) return 'templates/' + filename;
+        // If we're viewing under /site/ (served built site), use filename relative
+        if(location.pathname.includes('/site/')) return filename;
+        // If we're at root of a server (built site served as root), use /filename
+        return '/' + filename;
     }
+
+    // Intercept forms by action filename ending
+    Array.from(document.querySelectorAll('form')).forEach(function(f){
+        const name = formActionName(f).toLowerCase();
+        if(name.includes('login')){
+            f.addEventListener('submit', function(e){
+                e.preventDefault();
+                const user = document.getElementById('username') ? document.getElementById('username').value : 'user';
+                localStorage.setItem('logged_in','true');
+                localStorage.setItem('username', user);
+                // redirect to home (choose correct path)
+                window.location.href = makeHref('index.html') || '/';
+            });
+        }
+        if(name.includes('register')){
+            f.addEventListener('submit', function(e){
+                e.preventDefault();
+                const user = document.getElementById('username') ? document.getElementById('username').value : 'newuser';
+                localStorage.setItem('username', user);
+                alert('Registered (fake). You will be redirected to login.');
+                window.location.href = makeHref('login.html');
+            });
+        }
+        if(name.includes('profile')){
+            f.addEventListener('submit', function(e){
+                e.preventDefault();
+                const first = document.getElementById('first_name') ? document.getElementById('first_name').value : '';
+                const last = document.getElementById('last_name') ? document.getElementById('last_name').value : '';
+                const email = document.getElementById('email') ? document.getElementById('email').value : '';
+                localStorage.setItem('user_first', first);
+                localStorage.setItem('user_last', last);
+                localStorage.setItem('user_email', email);
+                alert('Profile saved locally (fake).');
+            });
+            // populate fields if saved
+            const fval = localStorage.getItem('user_first');
+            if(fval && document.getElementById('first_name')) document.getElementById('first_name').value = fval;
+            const lval = localStorage.getItem('user_last');
+            if(lval && document.getElementById('last_name')) document.getElementById('last_name').value = lval;
+            const evalv = localStorage.getItem('user_email');
+            if(evalv && document.getElementById('email')) document.getElementById('email').value = evalv;
+        }
+    });
 
     // Intercept profile settings form to save fields to localStorage
     const profileForm = document.querySelector('form[action="/profile/settings"]');

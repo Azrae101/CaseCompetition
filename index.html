@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0;url=/templates/home.html">
+  <title>Redirecting...</title>
+  <script>
+  (function(){
+    // Prefer built site index if it exists, otherwise fall back to templates preview
+    try {
+      fetch('/site/index.html', {method: 'HEAD'}).then(function(res){
+        if(res && res.ok) {
+          window.location.replace('/site/index.html');
+        } else {
+          window.location.replace('/templates/home.html');
+        }
+      }).catch(function(){
+        window.location.replace('/templates/home.html');
+      });
+    } catch(e) {
+      window.location.replace('/templates/home.html');
+    }
+  })();
+  </script>
+</head>
+<body>
+  Redirecting to <a href="/templates/home.html">home</a>...
+</body>
+</html>

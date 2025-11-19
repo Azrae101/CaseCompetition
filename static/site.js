@@ -40,6 +40,16 @@ document.addEventListener('DOMContentLoaded', function(){
         return parts.length? parts[parts.length-1] : '';
     }
 
+    // helper to choose correct link base depending on whether page is a template preview
+    function makeHref(filename){
+        // If we're viewing under /templates/ (Live Server preview), use templates/ paths
+        if(location.pathname.includes('/templates/')) return 'templates/' + filename;
+        // If we're viewing under /site/ (served built site), use filename relative
+        if(location.pathname.includes('/site/')) return filename;
+        // If we're at root of a server (built site served as root), use /filename
+        return '/' + filename;
+    }
+
     // Intercept forms by action filename ending
     Array.from(document.querySelectorAll('form')).forEach(function(f){
         const name = formActionName(f).toLowerCase();
@@ -49,8 +59,8 @@ document.addEventListener('DOMContentLoaded', function(){
                 const user = document.getElementById('username') ? document.getElementById('username').value : 'user';
                 localStorage.setItem('logged_in','true');
                 localStorage.setItem('username', user);
-                // redirect to home
-                window.location.href = '/';
+                // redirect to home (choose correct path)
+                window.location.href = makeHref('index.html') || '/';
             });
         }
         if(name.includes('register')){
@@ -59,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 const user = document.getElementById('username') ? document.getElementById('username').value : 'newuser';
                 localStorage.setItem('username', user);
                 alert('Registered (fake). You will be redirected to login.');
-                window.location.href = '/login.html';
+                window.location.href = makeHref('login.html');
             });
         }
         if(name.includes('profile')){

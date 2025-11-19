@@ -91,6 +91,14 @@ def build():
             continue
 
         rendered = tpl.render()
+        # Fix links that reference templates/ so built site uses root-relative filenames
+        # If templates contain links like "templates/todaystasks.html" (for direct preview)
+        # convert them to "todaystasks.html" in the built `site/` output.
+        rendered = (rendered
+                    .replace('href="templates/', 'href="')
+                    .replace("href='templates/", "href='")
+                    .replace('href="/templates/', 'href="')
+                    .replace("href='/templates/", "href='"))
 
         out_name = ENDPOINT_MAP.get(os.path.splitext(tpl_name)[0], tpl_name)
         out_path = os.path.join(OUT_DIR, out_name)
