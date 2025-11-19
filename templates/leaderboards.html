@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/casecompetition/static/style.css">
 </head>
 <body>
     <!-- Inline navbar for preview -->
     <div class="container_navbar">
         <div class="content_navbar">
-            <a href="{{ url_for('home') }}" class="brand-link"><img class="logo" src="{{ url_for('static', filename='logo.png') }}" alt="Vestas"/><span class="brand-text">Vestas Cyber Challenge</span></a>
+            <a href="/casecompetition{{ url_for('home') }}" class="brand-link"><img class="logo" src="/casecompetition{{ url_for('static', filename='logo.png') }}" alt="Vestas"/><span class="brand-text">Vestas Cyber Challenge</span></a>
             <div class="button-container">
-                <a href="/templates/todaystasks.html" class="button">Today's Tasks</a>
-                <a href="/templates/leaderboards.html" class="button">Leaderboards</a>
-                <a href="/templates/pointshop.html" class="button">Point Shop</a>
-                <a href="/templates/login.html" id="nav-login" class="button login">Login</a>
-                <a href="/templates/register.html" id="nav-register" class="button">Register</a>
+                <a href="/casecompetition/templates/todaystasks.html" class="button">Today's Tasks</a>
+                <a href="/casecompetition/templates/leaderboards.html" class="button">Leaderboards</a>
+                <a href="/casecompetition/templates/pointshop.html" class="button">Point Shop</a>
+                <a href="/casecompetition/templates/login.html" id="nav-login" class="button login">Login</a>
+                <a href="/casecompetition/templates/register.html" id="nav-register" class="button">Register</a>
                 <div class="dropdown" id="nav-profile" style="display:none;">
                     <button class="button round" id="profile-btn">P</button>
                     <div class="dropdown-content">
-                        <a href="/templates/profile_settings.html">Settings</a>
+                        <a href="/casecompetition/templates/profile_settings.html">Settings</a>
                         <a href="#" id="nav-logout">Logout</a>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
             </div>
         </div>
     </div>
-    <script src="/static/site.js"></script>
+    <script src="/casecompetition/static/site.js"></script>
 </body>
     <style>
         body {
@@ -77,7 +77,7 @@
 
     <div class="container">
     <h2>Hall of fame</h2>
-    <img src="/static/alltime.png" width=300>
+    <img src="/casecompetition/static/alltime.png" width=300>
 
         <h2>Weekly Leaderboard</h2>
         <table>
