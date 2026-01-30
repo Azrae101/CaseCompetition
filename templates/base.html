@@ -42,7 +42,7 @@
 
 <head>
     <title>CogCards - {% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="/casecompetition{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="/CaseCompetition{{ url_for('static', filename='style.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -51,7 +51,7 @@
 <nav id="topnav">
     <div id="topnav-center">
              <!-- Back to Home Button -->
-    <a class="back-btn" href="/casecompetition{{ url_for('home') }}">Back to Home</a>
+    <a class="back-btn" href="/CaseCompetition{{ url_for('home') }}">Back to Home</a>
         <ul>
             {% if g.user %}
                 <li><span>{{ g.user['username'] }}</span>
@@ -87,4 +87,4 @@
 </html>
 
 <!-- Load client-side script to enable fake login and navbar behavior -->
-<script src="/casecompetition{{ url_for('static', filename='site.js') }}"></script>
+<script src="/CaseCompetition{{ url_for('static', filename='site.js') }}"></script>

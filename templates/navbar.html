@@ -1,21 +1,21 @@
 <!-- Navbar fragment: minimal structure and classes. Styles are in static/style.css -->
 <div class="container_navbar">
     <div class="content_navbar">
-    <a href="/casecompetition{{ url_for('home') }}" class="brand-link"><img class="logo" src="/casecompetition{{ url_for('static', filename='logo.png') }}" alt="Vestas"/><span class="brand-text">Vestas Cyber Challenge</span></a>
+    <a href="/CaseCompetition{{ url_for('home') }}" class="brand-link"><img class="logo" src="/CaseCompetition{{ url_for('static', filename='logo.png') }}" alt="Vestas"/><span class="brand-text">Vestas Cyber Challenge</span></a>
         <div class="button-container">
-                <a href="/casecompetition/templates/todaystasks.html" class="button">Today's Tasks</a>
-                <a href="/casecompetition/templates/leaderboards.html" class="button">Leaderboards</a>
-                <a href="/casecompetition/templates/pointshop.html" class="button">Point Shop</a>
+                <a href="/CaseCompetition/templates/todaystasks.html" class="button">Today's Tasks</a>
+                <a href="/CaseCompetition/templates/leaderboards.html" class="button">Leaderboards</a>
+                <a href="/CaseCompetition/templates/pointshop.html" class="button">Point Shop</a>
 
             <!-- Login / Register shown when logged out -->
-            <a href="/casecompetition/templates/login.html" id="nav-login" class="button login">Login</a>
-            <a href="/casecompetition/templates/register.html" id="nav-register" class="button">Register</a>
+            <a href="/CaseCompetition/templates/login.html" id="nav-login" class="button login">Login</a>
+            <a href="/CaseCompetition/templates/register.html" id="nav-register" class="button">Register</a>
 
             <!-- Profile dropdown shown when logged in -->
             <div class="dropdown" id="nav-profile" style="display:none;">
                 <button class="button round" id="profile-btn">P</button>
                     <div class="dropdown-content">
-                        <a href="/casecompetition/templates/profile_settings.html">Settings</a>
+                        <a href="/CaseCompetition/templates/profile_settings.html">Settings</a>
                         <a href="#" id="nav-logout">Logout</a>
                     </div>
             </div>
@@ -32,4 +32,4 @@
         </div>
     </div>
 </div>
-<script src="/casecompetition/static/site.js"></script>
+<script src="/CaseCompetition/static/site.js"></script>
